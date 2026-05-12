@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Tech · {{ BRAND_NAME }}{% endblock %}
+
+{% block content %}
+{# TODO: W1 — 아기 사자 작성 영역 #}
+<link rel="stylesheet" href="{% static 'css/tech_list.css' %}">
+<div class="main">
+    <div class="inner">
+    <div class="header_row">
+  <div class="titlestack">
+    <div class="mono">TECH NOTES</div>
+    <div class="h1">만들면서 배운 것들.</div>
+  </div>
+
+  <div class="searchbar">
+    <div class="small">⌕</div>
+     <input class="search_input" type="text" placeholder="search posts…">
+    <div class="kbd">⌘K</div>
+  </div>
+</div>
+
+<div class="categoryfilter">
+            <div class="chip">All</div>
+            <div class="chip">Frontend</div>
+            <div class="chip">TypeScript</div>
+            <div class="chip">AI</div>
+            <div class="chip">Performance</div>
+            <div class="chip">Series DS</div>
+        </div>
+        <div class="postlist">
+             <div class="postrow">
+                <div class="day">
+                   2026.04.28
+                </div>
+                <div class="contentcol">
+                    <a href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}"> 
+                    <div class="h4">손에 익는 디자인 시스템 만들기</div>
+                    <div class="r2">Designing a system that fits the hand</div>
+                    </a>
+                    <div class="tagrow">
+                        <div class="chip">Frontend</div>
+                        <div class="chip">#design-system</div>
+                        <div class="chip">#tokens</div>
+                        <div class="chip">#css</div>
+                    </div>
+                </div>
+                <div class="time">
+                    8 min
+                </div>
+             </div>
+             <div class="postrow">
+                <div class="day">
+                 2026.04.21
+                </div>
+                <div class="contentcol">
+                    <div class="h4">tRPC와 함께한 1년: 좋았던 것, 불편했던 것</div>
+                    <div class="r2">A year with tRPC</div>
+                    <div class="tagrow">
+                        <div class="chip">TypeScript</div>
+                        <div class="chip">#trpc</div>
+                        <div class="chip">#types</div>
+                        <div class="chip">#dx</div>
+                    </div>
+                </div>
+                <div class="time">
+6 min
+                </div>
+             </div><div class="postrow">
+                <div class="day">
+2026.04.14
+                </div>
+                <div class="contentcol">
+                    <div class="h4">CSS Container Queries, 결국 쓰게 되더라</div>
+                    <div class="r2">I came around to container queries</div>
+                    <div class="tagrow">
+                        <div class="chip">Frontend</div>
+                        <div class="chip">#css</div>
+                        <div class="chip">#layout</div>
+                    </div>
+                </div>
+                <div class="time">
+5 min
+                </div>
+             </div><div class="postrow">
+                <div class="day">
+2026.04.07
+                </div>
+                <div class="contentcol">
+                    <div class="h4">Vibe coding 다음 단계 — 워크플로우 만들기</div>
+                    <div class="r2">Beyond vibe coding</div>
+                    <div class="tagrow">
+                        <div class="chip">AI</div>
+                        <div class="chip">#ai</div>
+                        <div class="chip">#workflow</div>
+                        <div class="chip">#agents</div>
+                    </div>
+                </div>
+                <div class="time">
+12 min
+                </div>
+             </div><div class="postrow">
+                <div class="day">
+2026.03.30
+                </div>
+                <div class="contentcol">
+                    <div class="h4">React 19 컴파일러로 useMemo를 지웠다</div>
+                    <div class="r2">Removing useMemo with React 19</div>
+                    <div class="tagrow">
+                        <div class="chip">Performance</div>
+                        <div class="chip">#react</div>
+                        <div class="chip">#perf</div>
+                    </div>
+                </div>
+                <div class="time">
+7 min
+                </div>
+             </div><div class="postrow">
+                <div class="day">
+2026.03.22
+                </div>
+                <div class="contentcol">
+                    <div class="h4">디자인 토큰을 코드로 옮기는 5가지 방법</div>
+                    <div class="r2">Five ways to ship design tokens</div>
+                    <div class="tagrow">
+                        <div class="chip">Series · DS</div>
+                        <div class="chip">#design-system</div>
+                        <div class="chip">#series</div>
+                        <div class="chip">#5/8</div>
+                    </div>
+                </div>
+                <div class="time">
+9 min
+                </div>
+             </div>
+        </div>
+        <div class="rectangle">
+        </div>
+    </div>
+</div>
+{% endblock %}
+

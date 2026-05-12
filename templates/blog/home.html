@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ BRAND_NAME }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<div class="hero">
+  <div class="inner">
+    <div class="eyebrow_row">
+          <span class="t1">
+            welcome · 환영합니다
+          </span> 
+          <span class="t2">
+            — 2026, week 18
+          </span>
+    </div>
+    <div class="h1">
+      기록하는 일이<br/>성장이 되는 곳<span class="dot">.</span>
+    </div>
+    <div class="t3">
+  아기사자(BL)가 매일 조금씩 적어가는 노트입니다.<br/>
+  기술, 프로젝트, 그리고 평범한 하루의 단상까지 — 천천히 쌓아 둡니다.
+    </div>
+    <div class="spacer">
+
+    </div>
+
+    <div class="ctas">
+       <span class="button">최신 글 읽기 →</span>
+       <span class="button">about</span>
+       <span class="button">RSS</span>
+    </div>
+    <div class="spacer">
+
+    </div>
+    <div class="meta_strip">
+        <div class="now_writing">
+            <span class="ellipse">
+                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+                <circle cx="4" cy="4" r="4" fill="#E8794A"/>
+                </svg>
+            </span>
+            <span class="t2">
+                now writing
+            </span>
+            <span class="t4">
+               디자인 토큰 시리즈 6편
+            </span>
+            
+        </div>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="inner">
+    <div class="header">
+       <div class="frame">
+        <span class="k1">
+            01
+        </span>
+        <span class="h2">
+          오늘의 노트
+        </span>
+       </div>
+       <span class="k2">
+        <a href="{% url 'tech_list' %}">
+        <span class="see">see all →</span>
+        </a> 
+        </span>
+    </div>
+    <div class="grid">
+      <div class="featured_post">
+        <div class="placeholder_img">
+           <div class="kbd">
+            손에 익는 디자인 시스템 · cover
+           </div>
+        </div>
+        <div class="content">
+          <div class="frame">
+            <span class="chip">Frontend</span>
+            <span class="chip_2">series · 5/8</span>
+            <span class="k2">2026.04.28 · 8 min</span>
+          </div>
+          <div class="h2_2">
+            <a href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
+              손에 익는 디자인 시스템 만들기
+              </a>
+          </div>
+          <div class="k3">
+            토큰을 짓는 일은 결국 이름을 짓는 일이다. 작은 결정에 이름을 붙이는 일 — 그게 시스템이다.
+          </div>
+          <div class="k4">
+            이어 읽기 →
+          </div>
+        </div>
+      </div>
+      <div class="latest_list">
+        <div class="k5">
+          LATEST · 최근 5편
+        </div>
+        <div class="spacer">
+        </div>
+        <div class="post_mini">
+          <div class="frame">
+            <span class="chip">
+              TypeScript
+            </span>
+            <span class="k2">
+              04.21
+            </span>
+          </div>
+          <div class="k6">
+            tRPC와 함께한 1년: 좋았던 것, 불편했던 것
+          </div>
+        </div>
+        <div class="post_mini">
+          <div class="frame">
+            <span class="chip">
+              Frontend
+            </span>
+            <span class="k2">
+              04.14
+            </span>
+          </div>
+          <div class="k6">
+              CSS Container Queries, 결국 쓰게 되더라
+          </div>
+        </div>
+        <div class="post_mini">
+          <div class="frame">
+            <span class="chip">
+              AI
+            </span>
+            <span class="k2">
+              04.07
+            </span>
+          </div>
+          <div class="k6">
+              Vibe coding 다음 단계 — 워크플로우 만들기
+          </div>
+        </div>
+        <div class="post_mini">
+          <div class="frame">
+            <span class="chip">
+              Performance
+            </span>
+            <span class="k2">
+              03.30
+            </span>
+          </div>
+          <div class="k6">
+              React 19 컴파일러로 useMemo를 지웠다
+          </div>
+        </div>
+        <div class="post_mini">
+          <div class="frame">
+            <span class="chip">
+              Series · DS
+            </span>
+            <span class="k2">
+              03.22
+            </span>
+          </div>
+          <div class="k6">
+            디자인 토큰을 코드로 옮기는 5가지 방법
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
