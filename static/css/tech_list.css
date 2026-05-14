@@ -243,3 +243,10 @@ background: var(--beige-bg-paper, #FBF6EC);
 }
 
 
+a{
+    text-decoration-line: none;
+}
+
+.search_input::placeholder {
+color: var(--beige-ink-4, #B59C82);
+}
