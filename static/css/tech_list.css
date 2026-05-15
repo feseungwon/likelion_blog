@@ -39,6 +39,11 @@ align-items: flex-start;
 align-self: stretch;
 }
 
+.postlist > a {
+    display: block;
+    width: 100%;
+}
+
 .rectangle{
     height: 1px;
 align-self: stretch;
