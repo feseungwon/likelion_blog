@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static %}i
 
 {% block title %}{{ post.title }} · {{ BRAND_NAME }}{% endblock %}
 
@@ -9,12 +9,23 @@
 <div class="main">
     <div class="toclist">
          <div class="t1">ON THIS PAGE</div>
-         <div class="items">
-            <div class="tocitem">1. 토큰이란</div>
-            <div class="tocitem">2. 단위 결정</div>
-            <div class="tocitem">3. 빌드 파이프라인</div>
-            <div class="tocitem">4. 마무리</div>
-         </div>
+         <ol class="items">
+
+    {% for section in sections %}
+
+        {% if section.kind == "h2" %}
+
+            <li class="tocitem">
+                {{ section.text }}
+            </li>
+            
+        
+
+        {% endif %}
+
+    {% endfor %}
+
+</ol>
     </div>
     <div class="article">
           <div class="metatop">
@@ -26,36 +37,32 @@
             </div>
             </div>
            <div class="h1">
-            손에 익는 디자인 시스템 만들기
+            {{post.title}}
             </div>
             <div class="t3">
-                Designing a system that fits the hand — tokens, units, and the boring middle.
+                 {{post.subtitle}} — tokens, units, and the boring middle.
+                 
             </div>
             <div class="notedivider">
                 <div class="line">
                 </div>
             </div>
-            <div class="t4">
-                디자인 시스템을 처음 만들 때, 저는 컴포넌트부터 시작했어요. 버튼, 카드, 입력 필드. 그러다 알았죠. <span class="y1">토큰이 없는 컴포넌트는 짐</span>이라는 걸요.
-            </div>
-            <div class="h2">
-                1. 토큰이란
-            </div>
-            <div class="t4">
-                토큰은 디자인 결정에 이름을 붙이는 일이에요. <span class="accent">--accent</span>는 "주황색"이 아니라 "강조되는 무엇"을 의미하죠.
-            </div>
-            <div class="codeblock">
-                <div class="t5">
-                    :root {  <br/>
-                --accent: #E8794A;       /* terracotta · primary */<br/>
-                --accent-hover: #C95A2C; /* deeper rust */<br/>
-                -bg-page: #F5EDE0;      /* page · soft beige */<br/>
-                            }
-                </div>
-            </div>
-            <div class="t4">
-                이름을 잘 붙이면, 색을 바꾸는 일이 의미를 바꾸는 일이 됩니다. 그게 시스템이에요.
-            </div>
+
+            
+          {% for section in sections %}
+
+            {% if section.kind == "h2" %}   
+                <div class="h2">{{ section.text }}</div>
+
+            {% elif section.kind == "p" %}
+                <div class="p">{{ section.text }}</div>
+
+            {% elif section.kind == "code" %}
+                <div class="codeblock"><pre><div class="code">{{ section.text }}</div></pre></div>
+
+            {% endif %}
+
+            {% endfor %}
             <div class="h5">
                 comments · 4
             </div>
@@ -144,7 +151,7 @@
                 edited
             </div>
             <div class="t10">    
-                2026.04.29
+               {{post.edited_at}}
             </div>
         </div>
         <div class="metarow">
@@ -152,7 +159,7 @@
                 views
             </div>
             <div class="t10">
-                1,284
+                {{post.views}}
             </div>
         </div>
         <div class="metarow">
@@ -160,7 +167,7 @@
                 license
             </div>
             <div class="t10">
-                CC BY 4.0
+                {{post.license}}
             </div>
         </div>
               <div class="notedivider">
