@@ -32,12 +32,13 @@
             
         </div>
         <div class="postlist">
-            <a href="{% url 'tech_detail' 'design-system-that-fits-the-hand' %}">
+           
                 {% for post in posts %}
+                 <a href="{% url 'tech_detail' post.slug %}">
             <div class="postrow">
 
         <div class="day">
-                {{ post.published_at }} 
+                {{ post.date_display }} 
         </div>
 
         <div class="contentcol">
@@ -52,11 +53,12 @@
 
         <div class="tagrow">
                <div class="chip">
-                Frontend
+                {{post.category.label}}
                </div>
+
             {% for tag in post.tags.all %}
                 <div class="chip">
-                    {{ tag.label }}
+                    #{{ tag.label }}
                 </div>
             {% endfor %}
 
