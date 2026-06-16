@@ -1,7 +1,103 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}회원가입 · {{ BRAND_NAME }}{% endblock %}
 
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
 {% block content %}
-{# TODO: W3 — 아기 사자 작성 영역 #}
+
+<div class="card">
+    <div class="header">
+        <p class="mono_eyebrow">SIGN UP · 회원가입</p>
+        <p class="heading_h2">처음 오셨네요.</p>
+        <p class="body_small">
+            Make a paper to leave notes, save posts, and join the conversation.
+        </p>
+    </div>
+
+    <div class="note_divider">
+        <div class="line"></div>
+    </div>
+
+    <form action="{% url 'signup' %}" method="post" class="form_field">
+        {% csrf_token %}
+
+        <div class="text_field">
+            <label for="name" class="mono_eyebrow">
+                NAME · 이름
+            </label>
+
+            <input
+                id="name"
+                class="input_box"
+                type="text"
+                name="name"
+                placeholder="Like Lion"
+            >
+        </div>
+
+        <div class="text_field">
+            <label for="username" class="mono_eyebrow">
+                ID
+            </label>
+
+            <input
+                id="username"
+                class="input_box"
+                type="text"
+                name="username"
+                placeholder="babyLion"
+            >
+        </div>
+
+        <div class="text_field">
+            <label for="password" class="mono_eyebrow">
+                PASSWORD
+            </label>
+
+            <input
+                id="password"
+                class="input_box"
+                type="password"
+                name="password"
+                placeholder="8자 이상, 영문/숫자 포함"
+            >
+        </div>
+
+        <div class="terms_row">
+            <input
+                id="agree"
+                class="check_box"
+                type="checkbox"
+                name="agree"
+            >
+
+            <label for="agree" class="body_small_meta">
+                <span class="text_accent">이용약관</span>과
+                <span class="text_accent">개인정보 처리방침</span>에 동의합니다.
+                <br>
+                I agree to the
+                <span class="text_accent">Terms</span> and
+                <span class="text_accent">Privacy Policy</span>.
+            </label>
+        </div>
+
+        <button type="submit" class="login_button">
+            <p class="body_small_bold">
+                Create account →
+            </p>
+        </button>
+    </form>
+
+    <p class="body_small_meta">
+        이미 계정이 있으신가요?
+        <a href="{% url 'login' %}" class="signup_link">
+            Sign in
+        </a>
+    </p>
+</div>
+
 {% endblock %}

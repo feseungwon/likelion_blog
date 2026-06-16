@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}i
+{% load static %}
 
 {% block title %}{{ post.title }} · {{ BRAND_NAME }}{% endblock %}
 
@@ -69,30 +69,53 @@
             <div class="notedivider">
                 <div class="line">
                 </div>
-            </div>
-            <div class="signinprompt">
-                <div class="prompt_text">
-                    <div class="s1">댓글을 남기려면 로그인이 필요해요</div>
-                    <div class="s2">Sign in to leave a note on this page.</div>
                 </div>
-                <div class="btn">
-                    Sign in →
-                </div>
-            </div>
-      <!-- <div class="comment_editor">
+
+ {% if user.is_authenticated %}
+<form class="comment_editor" action="{{ comment_url }}" method="post">
+    {% csrf_token %}
+
     <div class="avatar">
-        BL
+        {{ user.username|slice:":2"|upper }}
     </div>
 
     <div class="textstack">
-        <div class="t7">아기사자</div>
-        <div class="t8">댓글을 남겨주세요…</div>
+        <div class="t7">
+            {{ user.username }}
+        </div>
+
+        <input
+            id="comment-input"
+            class="t8"
+            type="text"
+            name="body"
+            placeholder="댓글을 남겨주세요..."
+            required
+        >
     </div>
 
-    <div class="button">
+    <button id="submit-btn" type="submit" class="button" disabled>
         post →
+    </button>
+</form>
+
+{% else %}
+<div class="signinprompt">
+    <div class="prompt_text">
+        <div class="s1">
+            댓글을 남기려면 로그인이 필요해요
+        </div>
+
+        <div class="s2">
+            Sign in to leave a note on this page.
+        </div>
     </div>
-</div> -->
+
+    <a href="{% url 'login' %}?next={{ request.path }}" class="btn">
+        Sign in →
+    </a>
+</div>
+{% endif %}
 
 <div class="comment_item">
     <div class="avatar">
@@ -132,6 +155,7 @@
     </div>
 </div>
 </div>
+
     <div class="metasidebar">
        <div class="t9">
         META

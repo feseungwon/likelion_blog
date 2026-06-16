@@ -1,7 +1,90 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}로그인 · {{ BRAND_NAME }}{% endblock %}
 
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
 {% block content %}
-{# TODO: W3 — 아기 사자 작성 영역 #}
+
+<div class="card">
+    <div class="header">
+        <p class="mono_eyebrow">LOGIN · 로그인</p>
+        <p class="h2">다시 오셨네요.</p>
+        <p class="body_small">
+            Welcome back. Sign in to leave notes and comment
+        </p>
+    </div>
+
+    <div class="note_divider">
+        <div class="line"></div>
+    </div>
+
+    <form action="{% url 'login' %}" method="post" class="form_field">
+        {% csrf_token %}
+
+        <div class="text_field">
+            <label for="username" class="mono_eyebrow">
+                ID
+            </label>
+
+            <input
+                id="username"
+                class="input_box"
+                type="text"
+                name="username"
+                placeholder="babyLion"
+            >
+        </div>
+
+        <div class="text_field">
+            <label for="password" class="mono_eyebrow">
+                PASSWORD
+            </label>
+
+            <input
+                id="password"
+                class="input_box"
+                type="password"
+                name="password"
+                placeholder="••••••••"
+            >
+        </div>
+
+        <div class="forgot_row">
+            <a href="#" class="body_caption">
+                forgot password?
+            </a>
+        </div>
+
+        <div class="remember_row">
+            <input
+                id="remember"
+                class="check_box"
+                type="checkbox"
+                name="remember"
+            >
+
+            <label for="remember" class="body_small_meta">
+                Remember me on this paper
+            </label>
+        </div>
+
+        <button type="submit" class="login_button">
+            <p class="body_small_bold">
+                Sign in →
+            </p>
+        </button>
+    </form>
+
+    <p class="body_small_meta">
+        처음이신가요?
+        <a href="{% url 'signup' %}" class="signup_link">
+            Create an account
+        </a>
+    </p>
+</div>
+
 {% endblock %}
