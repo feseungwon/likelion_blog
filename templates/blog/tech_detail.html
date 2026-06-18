@@ -63,8 +63,9 @@
             {% endif %}
 
             {% endfor %}
+            
             <div class="h5">
-                comments · 4
+              comments · {{ comments|length }}
             </div>
             <div class="notedivider">
                 <div class="line">
@@ -94,9 +95,10 @@
         >
     </div>
 
-    <button id="submit-btn" type="submit" class="button" disabled>
+    <button id="submit-btn" type="submit" class="button">
         post →
     </button>
+
 </form>
 
 {% else %}
@@ -117,43 +119,31 @@
 </div>
 {% endif %}
 
+{% for comment in comments %}
 <div class="comment_item">
     <div class="avatar">
-        JM
+        {{ comment.author_name|slice:":2"|upper }}
     </div>
 
     <div class="body">
         <div class="header">
-            <span class="t7">jaemin</span>
-            <span class="kbd">2026.04.28</span>
+            <span class="t7">{{ comment.author_name }}</span>
+            <span class="kbd">{{ comment.date_display }}</span>
         </div>
 
         <div class="t6">
-            토큰 네이밍 진짜 어렵죠. semantic 레벨까지 가면 의견 갈리고요.
+            {{ comment.body }}
         </div>
     </div>
 </div>
 
-<div class="notedivider">
-    <div class="line"></div>
-</div>
+{% if not forloop.last %}
+<div class="notedivider"><div class="line"></div></div>
+{% endif %}
 
-<div class="comment_item">
-    <div class="avatar">
-        SY
-    </div>
-
-    <div class="body">
-        <div class="header">
-            <span class="t7">soyun</span>
-            <span class="kbd">2026.04.29</span>
-        </div>
-
-        <div class="t6">
-            다음 편 기다릴게요. 빌드 파이프라인 부분 궁금해요.
-        </div>
-    </div>
-</div>
+{% empty %}
+<div class="t6" style="opacity: 0.4;">아직 댓글이 없어요.</div>
+{% endfor %}
 </div>
 
     <div class="metasidebar">
